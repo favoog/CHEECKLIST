@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title-docente">CHEECKLIST</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header class="constructor">
+      <ion-label>Usuario:</ion-label>
+      <ion-input></ion-input>
+      <br>
+      <ion-label>Contraseña:</ion-label>
+      <ion-input></ion-input>
+      <br>
+      <ion-button [routerLink]="['/qr']" >INGRESAR</ion-button>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

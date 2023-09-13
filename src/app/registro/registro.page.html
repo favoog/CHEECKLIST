@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title-pag">CHEECKLIST</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="title-card">Registro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formularioRegistrar">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+          <ion-label color="danger" *ngIf="formularioRegistrar.controls.nombre.errors?.['required'] && (formularioRegistrar.controls.nombre.touched || formularioRegistrar.controls.nombre.dirty)">* El Usuario es obligatoria"</ion-label>
+          <ion-label color="danger" *ngIf="formularioRegistrar.controls.nombre.errors?.['minlength'] && (formularioRegistrar.controls.nombre.touched || formularioRegistrar.controls.nombre.dirty)">* La Usuario debe contener 3 caracteres"</ion-label>
+          <ion-label color="danger" *ngIf="formularioRegistrar.controls.nombre.errors?.['maxlength'] && (formularioRegistrar.controls.nombre.touched || formularioRegistrar.controls.nombre.dirty)">* El Usuario no debe ser mayor a 8 caracteres"</ion-label>
+        <ion-item>
+        <ion-item>
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input formControlName="apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Rut</ion-label>
+          <ion-input formControlName="rut"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Escuela</ion-label>
+          <ion-input formControlName="escuela"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Carrera</ion-label>
+          <ion-input formControlName="carrera"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input formControlName="correo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input formControlName="usuario"></ion-input>
+        </ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input formControlName="Password" type="Password"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="formularioRegistrar.controls.Password.errors?.['required'] && (formularioRegistrar.controls.Password.touched || formularioRegistrar.controls.Password.dirty)">* La contraseña es obligatoria"</ion-label>
+      <ion-label color="danger" *ngIf="formularioRegistrar.controls.Password.errors?.['minlength'] && (formularioRegistrar.controls.Password.touched || formularioRegistrar.controls.Password.dirty)">* La contrañsena debe contener 4 caracteres"</ion-label>
+      <ion-label color="danger" *ngIf="formularioRegistrar.controls.Password.errors?.['maxlength'] && (formularioRegistrar.controls.Password.touched || formularioRegistrar.controls.Password.dirty)">* La contraseña no debe ser mayor a 4 caracteres"</ion-label>
+      <ion-item>
+        <ion-label position="floating">Confirmar Contraseña</ion-label>
+        <ion-input formControlName="confirmacionPassword" type="Password"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="formularioRegistrar.controls.confirmacionPassword.errors?.['required'] && (formularioRegistrar.controls.confirmacionPassword.touched || formularioRegistrar.controls.confirmacionPassword.dirty)">* La contraseña es obligatoria"</ion-label>
+      <ion-label color="danger" *ngIf="formularioRegistrar.controls.confirmacionPassword.errors?.['minlength'] && (formularioRegistrar.controls.confirmacionPassword.touched || formularioRegistrar.controls.confirmacionPassword.dirty)">* La contrañsena debe contener 4 caracteres"</ion-label>
+      <ion-label color="danger" *ngIf="formularioRegistrar.controls.confirmacionPassword.errors?.['maxlength'] && (formularioRegistrar.controls.confirmacionPassword.touched || formularioRegistrar.controls.confirmacionPassword.dirty)">* La contraseña no debe ser mayor a 4 caracteres"</ion-label>
+      </form>
+      <br>
+      <ion-button class="btn-registro" (click)="guardar()"  [disabled]="!formularioRegistrar.valid" [routerLink]="['/login']" >
+        Registrarse
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
