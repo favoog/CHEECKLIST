@@ -27,17 +27,14 @@ const routes: Routes = [
     path: 'recuperar-password',
     loadChildren: () => import('./recuperar-password/recuperar-password.module').then( m => m.RecuperarPasswordPageModule)
   },
-  {
-    path: 'logeado/:uservalue',
-    loadChildren: () => import('./logeado/logeado.module').then( m => m.LogeadoPageModule)
-  },
+
   {
     path: 'log-docente',
     loadChildren: () => import('./log-docente/log-docente.module').then( m => m.LogDocentePageModule)
   },
   {
-    path: 'qr',
-    loadChildren: () => import('./qr/qr.module').then( m => m.QrPageModule)
+    path: 'camara',
+    loadChildren: () => import('./camara/camara.module').then( m => m.CamaraPageModule)
   },
 ];
 

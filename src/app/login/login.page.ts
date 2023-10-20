@@ -32,9 +32,34 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
   
-  goDatosP(){
-    const userValue = this.formularioLogin.get('nombre')?.value;
-    this.navCtrl.navigateForward(`/logeado/${userValue}`);
+  async goDatosP(){
+    var f = this.formularioLogin.value;
+
+    var usuarioString = localStorage.getItem('usuario');
+    if (usuarioString !== null) {
+    var usuario = JSON.parse(usuarioString);
+    } else {
+      console.log('Error')
+      }
+
+    if(usuario.nombre == f.nombre && usuario.Password == f.Password){
+      const alert = await this.alertController.create({
+        header:'Datos Correctos',
+        message: 'Los datos que ingresaste son correcto',
+        buttons: ['Iniciar']
+        
+      });
+      this.navCtrl.navigateRoot('home') 
+      await alert.present();
+    }else{
+      const alert = await this.alertController.create({
+        header:'Datos Incorrectos',
+        message: 'Los datos que aceptaste no son correctos',
+        buttons : ['Aceptar']
+      });
+      await alert.present();
+    }
+  
   }
 
   movLimpiar() {
